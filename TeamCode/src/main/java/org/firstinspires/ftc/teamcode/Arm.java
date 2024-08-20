@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.hardware.Gamepad;
 
 public class Arm {
     Motor rotationMotor;
-    Motor extentionMotor;
+    Motor extensionMotor;
 
     double rotationConst;
     double extensionConst;
@@ -20,7 +20,7 @@ public class Arm {
 
     public Arm(
             Motor rotationMotor,
-            Motor extentionMotor,
+            Motor extensionMotor,
             double rotationConst,
             double extensionConst,
             double rotationUpperLimit,
@@ -31,8 +31,8 @@ public class Arm {
         this.rotationMotor = rotationMotor;
         this.rotationMotor.setRunMode(Motor.RunMode.VelocityControl);
 
-        this.extentionMotor = extentionMotor;
-        this.extentionMotor.setRunMode(Motor.RunMode.VelocityControl);
+        this.extensionMotor = extensionMotor;
+        this.extensionMotor.setRunMode(Motor.RunMode.VelocityControl);
 
         this.rotationConst = rotationConst;
         this.extensionConst = extensionConst;
@@ -79,6 +79,8 @@ public class Arm {
         PIDController pidController = new PIDController(0.05, 0, 0);
         pidController.setSetpoint(extensionSetPoint);
 
-        extentionMotor.set(pidController.calculate(extentionMotor.getCurrentPosition()));
+        extensionMotor.set(pidController.calculate(extensionMotor.getCurrentPosition()));
+
+        extensionMotor.set(0.5);
     }
 }

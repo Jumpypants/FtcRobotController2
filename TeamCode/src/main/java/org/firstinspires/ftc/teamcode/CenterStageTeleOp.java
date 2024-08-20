@@ -10,7 +10,7 @@ import org.checkerframework.checker.units.qual.C;
 
 import java.util.ArrayList;
 
-@TeleOp(name="OpMode1")
+@TeleOp(name = "OpMode1")
 
 public class CenterStageTeleOp extends LinearOpMode {
 
